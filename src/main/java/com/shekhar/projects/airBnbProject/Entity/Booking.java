@@ -2,11 +2,13 @@ package com.shekhar.projects.airBnbProject.Entity;
 
 import com.shekhar.projects.airBnbProject.Entity.enums.BookingStatus;
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Set;
@@ -15,6 +17,7 @@ import java.util.Set;
 @Setter
 @Entity
 @Table(name="booking")
+@Builder
 public class Booking {
 
     @Id
@@ -32,9 +35,9 @@ public class Booking {
     @ManyToOne(fetch =FetchType.LAZY)
     @JoinColumn(name = "user_id",nullable = false)
     private User user;
-    
+
     @Column(nullable = false)
-    private Integer roomCount;
+    private Integer roomsCount;
 
     @Column(nullable = false)
     private LocalDate checkInDate;
@@ -64,6 +67,9 @@ public class Booking {
             inverseJoinColumns = @JoinColumn(name = "guest_id")
     )
     private Set<Guest> guests;
+
+    @Column(nullable = false, precision = 10, scale = 2)
+    private BigDecimal amount;
 
 
 }

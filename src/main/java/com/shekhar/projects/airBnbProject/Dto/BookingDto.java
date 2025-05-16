@@ -9,13 +9,10 @@ import java.time.LocalDateTime;
 import java.util.Set;
 
 @Data
-public class BoookingDto {
+public class BookingDto {
 
     private Long id;
-    private Hotel hotel;
-    private Room room;
-    private User user;
-    private Integer roomCount;
+    private Integer roomsCount;
     private LocalDate checkInDate;
     private LocalDate checkOutDate;
     private LocalDateTime createdAt;

@@ -33,6 +33,7 @@ public class InventoryServiceImp implements InventoryService{
             Inventory inventory = Inventory.builder()
                     .hotel(room.getHotel())
                     .room(room)
+                    .reservedCount(0)
                     .bookedCount(0)
                     .city(room.getHotel().getCity())
                     .date(today)
@@ -58,6 +59,7 @@ public class InventoryServiceImp implements InventoryService{
                 hotelSearchRequest.getStartDate(), hotelSearchRequest.getEndDate());
         Pageable pageable = PageRequest.of(hotelSearchRequest.getPage(),hotelSearchRequest.getSize());
         long dateCount = ChronoUnit.DAYS.between(hotelSearchRequest.getStartDate(),hotelSearchRequest.getEndDate())+1;
+
         Page<Hotel> hotelpage = inventoryRepository.findHotelsWithAvailableInventory(hotelSearchRequest.getCity(),
                 hotelSearchRequest.getStartDate(), hotelSearchRequest.getEndDate(), hotelSearchRequest.getRoomsCount(),
                 dateCount, pageable);
