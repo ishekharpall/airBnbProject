@@ -2,9 +2,7 @@ package com.shekhar.projects.airBnbProject.Entity;
 
 import com.shekhar.projects.airBnbProject.Entity.enums.BookingStatus;
 import jakarta.persistence.*;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -13,11 +11,13 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Set;
 
+@Entity
 @Getter
 @Setter
-@Entity
-@Table(name="booking")
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name="booking")
 public class Booking {
 
     @Id

@@ -1,6 +1,7 @@
 package com.shekhar.projects.airBnbProject.Service;
 
 import com.shekhar.projects.airBnbProject.Dto.HotelDto;
+import com.shekhar.projects.airBnbProject.Dto.HotelPriceDto;
 import com.shekhar.projects.airBnbProject.Dto.HotelSearchRequest;
 import com.shekhar.projects.airBnbProject.Entity.Room;
 import org.springframework.data.domain.Page;
@@ -10,6 +11,6 @@ public interface InventoryService {
 
     void deleteAllInventories(Room room);
 
-    Page<HotelDto> searchHotels(HotelSearchRequest hotelSearchRequest);
+    Page<HotelPriceDto> searchHotels(HotelSearchRequest hotelSearchRequest);
     
 }

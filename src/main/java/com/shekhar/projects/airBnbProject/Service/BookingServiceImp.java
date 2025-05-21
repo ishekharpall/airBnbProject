@@ -67,8 +67,6 @@ public class BookingServiceImp implements BookingService{
 
         // Create the Booking
 
-
-
         // TODO: calculate dynamic amount
 
         Booking booking = Booking.builder()
